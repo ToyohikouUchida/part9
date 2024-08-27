@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isShowAlert = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button("アラート") {
+                isShowAlert = true
+            }
+            .padding()
         }
         .padding()
+        .alert("本当に削除しますか",isPresented: $isShowAlert) {
+            Button("OK") {
+                
+            }
+        } message: {
+            Text("一度削除したら元に戻どすことは出来ません")
+        }
     }
 }
 
